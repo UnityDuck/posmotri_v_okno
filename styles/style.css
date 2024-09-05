@@ -11,10 +11,11 @@ html {
 .page {
   display: flex;
   align-items: center;
+  justify-content: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
-  color: #fff;
+  color: white;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
@@ -49,8 +50,6 @@ ol {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/** Всё для правильного скрытия визуально спрятанных классов **/
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -74,28 +73,36 @@ ol {
   margin-top: 40px;
 }
 
-/** Кнопка... Хм, точно, это кнопка. **/
-
 .button {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 700;
   padding-top: 6px;
+  padding-bottom: 6px;
   padding-left: 0;
   padding-right: 0;
   background: transparent;
   cursor: pointer;
   color: #fff;
-  border: 1px solid white;
+  border: 1px solid currentColor;
   width: 100%;
 }
 
-.button:focus {
-  outline: none;
+.button:focus-visible {
+  outline-offset: 1px;
+  outline: 1px solid white;
 }
 
 .button:hover {
   text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .cards-list-item-tamplate {
@@ -103,8 +110,6 @@ ol {
   flex-direction: column;
   gap: 30px;
 }
-
-/** Видео с результатом настроим сразу**/
 
 .result__video {
   width: inherit;
@@ -126,8 +131,6 @@ ol {
   height: 386px;
   width: 711px;
 }
-
-/** Ниже будет форма поиска городов (Надеюсь мы создаём тайное оружие для Яндекса в области отслеживания преступников по камерам) **/
 
 .search-form {
   display: flex;
@@ -160,9 +163,21 @@ ol {
   cursor: pointer;
 }
 
+.search-form-label:active {
+  border: 1px solid white;
+}
+
 .search-form__label:hover {
-  text-decoration: underline;
   font-weight: 400;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline-offset: 1px;
+  outline: 1px solid white;
+}
+
+.search-form__checkbox-list .search-form__label:hover {
+  text-decoration: underline;
 }
 
 .search-form__textfield {
@@ -183,6 +198,18 @@ ol {
   appearance: none;
 }
 
+.search-form__textfield:active {
+  outline: 1px solid white;
+}
+
+.search-form__textfield:focus-visible {
+  outline: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
@@ -196,8 +223,6 @@ ol {
   height: 19px;
   border: 1px solid white;
 }
-
-/** Интересный селектор **/
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   font-size: 18px;
@@ -213,9 +238,9 @@ ol {
 .search-form__submit-button {
   align-self: flex-end;
   min-width: 190px;
+  align-items: center;
+  justify-content: center;
 }
-
-/** Опять этот ваш контент... **/
 
 .content {
   margin-left: auto;
@@ -244,13 +269,6 @@ ol {
   text-transform: capitalize;
 }
 
-.content__list::-webkit-scrollbar {
-  display: none;
-}
-
-/** Color madness **/
-/** На самом деле эти цвета прописывать один за другим - огромная отдушина после тяжёлого дня. Смотришь и радуешься, как у тебя в результате от всего одного движения пальцем на клавиатуре меняется весь результат. **/
-
 .content__accent {
   color: #545050;
 }
@@ -262,8 +280,6 @@ ol {
 .content__card-link_current {
   background: #545050;
 }
-
-/** Color madness' end **/
 
 .content__card-link {
   display: block;
@@ -309,11 +325,9 @@ ol {
 
 .content__video-card-description-container {
   display: flex;
-  padding-top: 5px;
   padding-left: 0px;
   padding-right: 0px;
   width: 200px;
-  gap: 4px;
   flex-direction: column;
 }
 
@@ -322,9 +336,11 @@ ol {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 30px;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+  max-width: 200px;
 }
-
-/** Thumbnail? Это который ноготь на пальце, или же... **/
 
 .content__video-card-thumbnail {
   margin-left: auto;
