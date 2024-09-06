@@ -88,11 +88,6 @@ ol {
   width: 100%;
 }
 
-.button:focus-visible {
-  outline-offset: 1px;
-  outline: 1px solid white;
-}
-
 .button:hover {
   text-decoration: underline;
 }
@@ -105,10 +100,9 @@ ol {
   outline: none;
 }
 
-.cards-list-item-tamplate {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.button:focus-visible {
+  outline-offset: 1px;
+  outline: 1px solid white;
 }
 
 .result__video {
@@ -256,10 +250,13 @@ ol {
   display: flex;
   align-self: baseline;
   flex-direction: column;
-  gap: 30.5px;
   overflow-y: auto;
   height: 300px;
 }
+
+.content__list-item:not(:last-of-type) {
+  margin-bottom: 30px;
+} 
 
 .content__details {
   display: flex;
